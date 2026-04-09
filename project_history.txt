@@ -1,0 +1,56 @@
+    1  sudo dnf install gcc kernel-devel kernel-headers make perl -y
+    2  sudo mkdir /mnt/cdrom
+    3  sudo mount /dev/cdrom /mnt/cdrom
+    4  /mnt/cdrom/VBoxLinuxAddiditions.run
+    5  lsblk
+    6  mount /dev/sr0 /mnt
+    7  ls /mnt
+    8  umount /mnt/cdrom
+    9  umount /mnt
+   10  mount /dev/sr0 /mnt
+   11  ls /mnt
+   12  sh /mnt/VBoxLinuxAdditions.run
+   13  reboot
+   14  lsblk
+   15  fdisk /dev/sdb
+   16  lsblk
+   17  mkfs.ext4 -L DATA /dev/sdb1
+   18  mkdir -p /data/merphi-web
+   19  mount /dev/sdb1 /data/merphi-web
+   20  df -h
+   21  blkid
+   22  nano /etc/fstab
+   23  dnf install -y nano
+   24  nano /etc/fstab
+   25  mount -a
+   26  df -h
+   27  systemctl start nginx
+   28  systemctl status nginx
+   29  systemctl enable nginx
+   30  curl localhost
+   31  journalctl -u nginx --since "5 minutes ago"
+   32  journalctl -u nginx --since "5 minutes ago" > /tmp/nginx_recent_logs.txt
+   33  cat /tmp/nginx_recent_logs.txt
+   34  useradd merphi-admin
+   35  passwd merphi-admin
+   36  groupadd merphi-devs
+   37  usermod -aG merphi-devs merphi-admin
+   38  chown -R merphi-admin:merphi-devs /data/merphi-web
+   39  chmod 2775 /data/merphi-web
+   40  ls -ld /data/merphi-web
+   41  getenforce
+   42  semanage fcontext -a -t httpd_sys_content_t "/data/merphi-web(/.*)?"
+   43  restorecon -Rv /data/merphi-web
+   44  ls -Zd /data/merphi-web
+   45  chmod -s /usr/sbin/tcpdump
+   46  setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
+   47  getcap /usr/sbin/tcpdump
+   48  sudo -u merphi-admin tcpdump --help
+   49  echo "root" > /etc/ssh/denied_users
+   50  nano /etc/pam.d/sshd
+   51  nano /etc/pam.d/login
+   52  su - merphi-admin
+   53  nano /etc/nginx/nginx.conf
+   54  systemctl restart nginx
+   55  curl http://localhost
+   56  history > ~/project_history.txt
