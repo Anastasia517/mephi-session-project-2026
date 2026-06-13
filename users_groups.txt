@@ -1,2 +1,2 @@
-uid=1000(merphi-admin) gid=1000(merphi-admin) группы=1000(merphi-admin),1001(merphi-devs)
-merphi-devs:x:1001:merphi-admin
+uid=1000(mephi-admin) gid=1000(mephi-admin) группы=1000(mephi-admin),1001(mephi-devs)
+mephi-devs:x:1001:mephi-admin

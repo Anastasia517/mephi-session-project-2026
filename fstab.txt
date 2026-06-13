@@ -11,4 +11,4 @@
 #
 UUID=e608f0bd-d297-44fb-8da8-4205e65cd08e / xfs defaults 0 0
 UUID=7226a440-ef47-40c3-9d47-9aa80c0e7acb /boot xfs defaults 0 0
-UUID=fbb0dc94-d88d-4467-bc9e-6f9edf26cfd9 /data/merphi-web ext4 defaults 0 2
+UUID=fbb0dc94-d88d-4467-bc9e-6f9edf26cfd9 /data/mephi-web ext4 defaults 0 2

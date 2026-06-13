@@ -15,8 +15,8 @@
    15  fdisk /dev/sdb
    16  lsblk
    17  mkfs.ext4 -L DATA /dev/sdb1
-   18  mkdir -p /data/merphi-web
-   19  mount /dev/sdb1 /data/merphi-web
+   18  mkdir -p /data/mephi-web
+   19  mount /dev/sdb1 /data/mephi-web
    20  df -h
    21  blkid
    22  nano /etc/fstab
@@ -31,25 +31,25 @@
    31  journalctl -u nginx --since "5 minutes ago"
    32  journalctl -u nginx --since "5 minutes ago" > /tmp/nginx_recent_logs.txt
    33  cat /tmp/nginx_recent_logs.txt
-   34  useradd merphi-admin
-   35  passwd merphi-admin
-   36  groupadd merphi-devs
-   37  usermod -aG merphi-devs merphi-admin
-   38  chown -R merphi-admin:merphi-devs /data/merphi-web
-   39  chmod 2775 /data/merphi-web
-   40  ls -ld /data/merphi-web
+   34  useradd mephi-admin
+   35  passwd mephi-admin
+   36  groupadd mephi-devs
+   37  usermod -aG mephi-devs mephi-admin
+   38  chown -R mephi-admin:mephi-devs /data/mephi-web
+   39  chmod 2775 /data/mephi-web
+   40  ls -ld /data/mephi-web
    41  getenforce
-   42  semanage fcontext -a -t httpd_sys_content_t "/data/merphi-web(/.*)?"
-   43  restorecon -Rv /data/merphi-web
-   44  ls -Zd /data/merphi-web
+   42  semanage fcontext -a -t httpd_sys_content_t "/data/mephi-web(/.*)?"
+   43  restorecon -Rv /data/mephi-web
+   44  ls -Zd /data/mephi-web
    45  chmod -s /usr/sbin/tcpdump
    46  setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
    47  getcap /usr/sbin/tcpdump
-   48  sudo -u merphi-admin tcpdump --help
+   48  sudo -u mephi-admin tcpdump --help
    49  echo "root" > /etc/ssh/denied_users
    50  nano /etc/pam.d/sshd
    51  nano /etc/pam.d/login
-   52  su - merphi-admin
+   52  su - mephi-admin
    53  nano /etc/nginx/nginx.conf
    54  systemctl restart nginx
    55  curl http://localhost
